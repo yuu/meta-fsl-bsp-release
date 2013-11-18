@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://EULA.txt;md5=93b784b1c11b3fffb1638498a8dde3f6"
 
 PE = "1"
 
-SRC_URI[md5sum] = "b0b53a087ec4374b5467bb2d8afcd623"
-SRC_URI[sha256sum] = "8e07c2b8501b66909e2da94e1581e42997e6e252c0246c0ddeffd9cf6fc1e2b7"
+SRC_URI[md5sum] = "55aa368f0d274dc36009349375e3c71c"
+SRC_URI[sha256sum] = "730d90576dbeebac0959cb920352a2d6a7f3e13d9767e6a9ca5ddad45ceea6ee"
 
 COMPATIBLE_MACHINE = "(mx6)"
