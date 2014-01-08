@@ -5,13 +5,10 @@ LICENSE = "Proprietary"
 
 inherit fsl-eula-unpack
 
-INC_PR = "r0"
-
 SRC_URI = "${FSL_MIRROR}/hdcp-app-${PV}.bin;fsl-eula=true"
 S = "${WORKDIR}/${PN}-${PV}"
 
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-
 
 do_install() {
         install -d ${D}/unit_tests
