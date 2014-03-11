@@ -1,12 +1,14 @@
-# Copyright (C) 2013 Freescale Semiconductor
+# Copyright (C) 2013-2014 Freescale Semiconductor
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 require recipes-graphics/gpu-viv-bin-mx6q/gpu-viv-bin-mx6q.inc
 
-SRC_URI[md5sum] = "7bc440bd2adf2cb2c463f41f01e0412e"
-SRC_URI[sha256sum] = "c6fc0b387879f5826edbb0d51ea2726eb16031a3aed77e88833d3fb7de445a7a"
+DEPENDS += "${@base_contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)}"
 
-SRC_URI += "file://.directfbrc"
+SRC_URI[md5sum] = "a57b81aec56cbfeeff2f3148d69e3c5d"
+SRC_URI[sha256sum] = "1aba14318400e8a24a3a9a6c8f96846c33770c49645628c3e872a7a88fa8b3f8"
+
+SRC_URI += "file://directfbrc"
 
 PACKAGE_FP_TYPE = "softfp"
 
@@ -23,7 +25,7 @@ do_install_append () {
         if [ "${USE_DFB}" = "yes" ]; then
             backend=dfb
             install -d ${D}/home/root
-            cp -a ${WORKDIR}/.directfbrc ${D}/home/root
+            cp -a ${WORKDIR}/directfbrc ${D}/home/root/.directfbrc
         else
             # Regular framebuffer
             backend=fb
