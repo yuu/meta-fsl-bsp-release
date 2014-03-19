@@ -13,8 +13,8 @@ LIC_FILES_CHKSUM = "file://EXA/src/vivante_fbdev/vivante.h;endline=19;md5=641ac6
 SRC_URI = "${FSL_MIRROR}/xserver-xorg-video-imx-viv-${PV}.tar.gz"
 S="${WORKDIR}/xserver-xorg-video-imx-viv-${PV}/"
 
-SRC_URI[md5sum] = "f6529a6772a73d624e8ce7ac756d1c9b"
-SRC_URI[sha256sum] = "cbe5b57526068868c6005a21b1e4d03b1a14cd1d1923f12b704a4cbe1d41f21c"
+SRC_URI[md5sum] = "f650ca46381b09b9149ede0aae786cc2"
+SRC_URI[sha256sum] = "fdc3d6fc26803033c2448258b37bd6531320943d7e5f9c0495c5f1523671ae2a"
 
 EXTRA_OEMAKE += "-C EXA/src -f makefile.linux prefix=${D}/usr \
                  sysroot=${STAGING_DIR_TARGET} \
@@ -45,6 +45,8 @@ do_install_append () {
 	install -d ${D}${includedir}
 	cp -axr ${S}/EXA/src/vivante_gal/vivante_priv.h ${D}${includedir}
 	cp -axr ${S}/EXA/src/vivante_gal/vivante_gal.h ${D}${includedir}
+	install -d ${D}${exec_prefix}/sbin
+	cp -axr ${S}/util/autohdmi ${D}${exec_prefix}/sbin
 	find ${D}${includedir} -type f -exec chmod 660 {} \;
 }
 
