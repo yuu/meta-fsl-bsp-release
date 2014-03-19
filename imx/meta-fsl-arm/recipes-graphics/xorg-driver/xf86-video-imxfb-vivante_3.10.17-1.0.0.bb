@@ -13,8 +13,8 @@ LIC_FILES_CHKSUM = "file://EXA/src/vivante_fbdev/vivante.h;endline=19;md5=641ac6
 SRC_URI = "${FSL_MIRROR}/xserver-xorg-video-imx-viv-${PV}.tar.gz"
 S="${WORKDIR}/xserver-xorg-video-imx-viv-${PV}/"
 
-SRC_URI[md5sum] = "f650ca46381b09b9149ede0aae786cc2"
-SRC_URI[sha256sum] = "fdc3d6fc26803033c2448258b37bd6531320943d7e5f9c0495c5f1523671ae2a"
+SRC_URI[md5sum] = "f494f8862a016cba315795b061a338ea"
+SRC_URI[sha256sum] = "5470308eaabedb5585bbf02e4117a421ec8e8951e4033e9e1afa387937b3a5f9"
 
 EXTRA_OEMAKE += "-C EXA/src -f makefile.linux prefix=${D}/usr \
                  sysroot=${STAGING_DIR_TARGET} \
