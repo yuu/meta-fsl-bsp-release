@@ -1,9 +1,7 @@
 
 # only include this change for X11 backend
 
-DEPENDS += "virtual/xserver xserver-xorg-extension-viv-hdmi"
-
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS_prepend_mx6 := "${@base_contains('DISTRO_FEATURES', 'x11', '${THISDIR}/${PN}:', '', d)}"
 
 SRC_URI = "file://rc.local.etc \
 	  file://rc.local.init \
