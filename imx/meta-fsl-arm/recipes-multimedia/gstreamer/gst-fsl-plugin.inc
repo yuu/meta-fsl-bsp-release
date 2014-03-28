@@ -1,4 +1,4 @@
-# Copyright (C) 2011-2013 Freescale Semiconductor
+# Copyright (C) 2011-2014 Freescale Semiconductor
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 DESCRIPTION = "Gstreamer freescale plugins"
@@ -7,7 +7,9 @@ SECTION = "multimedia"
 
 DEPENDS = "gstreamer gst-plugins-base libfslcodec libfslparser virtual/kernel"
 DEPENDS_append_mx5 = " imx-lib imx-vpu"
-DEPENDS_append_mx6 = " imx-lib imx-vpu libfslvpuwrap"
+DEPENDS_append_mx6q = " imx-lib imx-vpu libfslvpuwrap"
+DEPENDS_append_mx6dl = " imx-lib imx-vpu libfslvpuwrap"
+DEPENDS_append_mx6s = " imx-lib imx-vpu libfslvpuwrap"
 DEPENDS_append_mx6sl = " imx-lib"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552 \
@@ -26,7 +28,7 @@ PLATFORM_mx6sl = "MX6SL"
 PLATFORM_mx28 = "MX28"
 
 # Todo add a mechanism to map posible build targets
-EXTRA_OECONF = "PLATFORM=${PLATFORM} --disable-valgrind --disable-examples --disable-debug \
+EXTRA_OECONF = "PLATFORM=${PLATFORM} \
                 CPPFLAGS="-I${STAGING_KERNEL_DIR}/include/uapi -I${STAGING_KERNEL_DIR}/include""
 
 PACKAGES =+ "${PN}-libmfwsconf ${PN}-libgplaycore ${PN}-libgstfsl \
@@ -39,9 +41,7 @@ PACKAGECONFIG[ac3] += "--enable-ac3dec,--disable-ac3dec,libfslac3codec,libfslac3
 #   The ddplus codec does not support mx28
 DDPDEPENDS = "libfslddpcodec"
 DDPDEPENDS_mx28 = ""
-DDP_CONFIG_ARGS = "--enable-ddpdec"
-DDP_CONFIG_ARGS_mx28 = "--disable-ddpdec"
-PACKAGECONFIG[ddp] += "${DDP_CONFIG_ARGS},--disable-ddpdec,${DDPDEPENDS},${DDPDEPENDS}"
+PACKAGECONFIG[ddp] += ",,${DDPDEPENDS},${DDPDEPENDS}"
 # feature from special mm packages
 PACKAGECONFIG[aacp] += "--enable-aacpdec,--disable-aacpdec,libfslaacpcodec,libfslaacpcodec"
 MSDEPENDS = "libfslmsparser libfslmscodec"
