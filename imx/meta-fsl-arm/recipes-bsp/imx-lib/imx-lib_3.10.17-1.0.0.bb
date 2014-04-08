@@ -2,16 +2,9 @@
 
 require recipes-bsp/imx-lib/imx-lib.inc
 
-#PLATFORM_mx6sl = "IMX6S"
-
-SRC_URI[md5sum] = "c8f3fa5c2fcdfca41cdb3b84782957db"
-SRC_URI[sha256sum] = "33f6ad85b81473874729c2d2cadd085e149c248c02d8ac358d119c6ed8a6535a"
+SRC_URI[md5sum] = "8e3346d5f33b5aa5f915a0dd8aa99cc9"
+SRC_URI[sha256sum] = "f42605971977e5fe1ed9e7ce17ea3f97586a23fbc60fa0f679940d379c72303e"
 
 PE = "1"
 
 COMPATIBLE_MACHINE = "(mx6)"
-
-# remove g2d for ga release
-do_configure () {
-    rm -rf ${S}/g2d
-}
