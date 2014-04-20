@@ -1,0 +1,15 @@
+Three build scripts are provided
+
+fsl-setup-release.sh 
+Used for initializing the Yocto Project build environment for i.MX BSP releases
+using the meta-fsl-bsp-release layer.  This script calls setup-environment.
+
+release_all_build.sh
+Used to build our release images to show how i.MX release images are created.
+This builds imx6qdlsolo which is a rootfs that can be used for imx6q, imx6dl and imx6solo.
+The second rootfs imx6slevk is built to show a non-VPU rootfs.
+
+backend_consolidated.sh
+Used to build non-X11 builds for DirectFB, Framebuffer and wayland.  This script was used
+to create the release images.
+
