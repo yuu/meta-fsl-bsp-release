@@ -40,19 +40,8 @@ This BSP is a Freescale release providing support for the following processors
 
 Quick Start Guide
 -----------------
-First install the Freescale Community BSP
-$: repo init -u http://github.com/Freescale/fsl-community-bsp-platform -b dora
-
-Copy the fsl-yocto-release-manifest.xml over the community manifest using the following instructions.
-The fsl-yocto-release-manifest.xml is provided in the Freescale Yocto Release package for 3.10.17-1.0.0
-
-$: cp fsl-yocto-release-manifest.xml .repo
-$: cd .repo
-$: cp manifest.xml manifest-community.xml
-$: rm manifest.xml
-$: cp fsl-yocto-release-manifest.xml manifest.xml
-$: cd ..
-
+First install the i.MX Freescale BSP repo
+$: repo init -u git://git.freescale.com/imx/fsl-arm-yocto-bsp.git -b imx-3.10.17-1.0.0_ga
 
 Download the Yocto Freescale Layers
 $: repo sync
@@ -63,12 +52,8 @@ This is required for community setup to find the new machine configurations prov
 $: cp -r sources/meta-fsl-bsp-release/imx/meta-fsl-arm/conf/machine sources/meta-fsl-arm/conf
 
 
-Run Yocto Community Setup
-$: MACHINE=< machine name> source setup-environment <build directory>
-$: cd ..
-
-Run 3.10.17-1.0.0 Release Layer setup
-$: source fsl-setup-release.sh -b <build directory>  -e <backend fb, dfb or wayland>
+Run i.MX Yocto Project Setup
+$: MACHINE=< machine name> source fsl-setup-release.sh -b <build directory> -e <backend fb, dfb, wayland, x11>
 
 This will sync in the layer and update local.conf and bblayer.conf in build directory.
 
