@@ -36,6 +36,7 @@ echo "BBLAYERS += \" \${BSPDIR}/sources/meta-fsl-bsp-release/imx/meta-fsl-qt5 \"
 if [ ! -d "../sources/meta-qt5" ]; then
     cd ../sources
     git clone -b master https://github.com/meta-qt5/meta-qt5.git
+    cd meta-qt5
+    git checkout 7a8f5fe098c4a553249710f6869c01bac888d398
     cd $CWD
 fi
-
