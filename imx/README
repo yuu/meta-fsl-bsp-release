@@ -46,19 +46,13 @@ $: repo init -u git://git.freescale.com/imx/fsl-arm-yocto-bsp.git -b imx-3.10.17
 Download the Yocto Freescale Layers
 $: repo sync
 
-Copy the new machine configuration files from meta-fsl-bsp-release into meta-fsl-arm
-This is required for community setup to find the new machine configurations provided in 3.10.17-1.0.0
-
-$: cp -r sources/meta-fsl-bsp-release/imx/meta-fsl-arm/conf/machine sources/meta-fsl-arm/conf
-
-
 Run i.MX Yocto Project Setup
 $: MACHINE=< machine name> source fsl-setup-release.sh -b <build directory> -e <backend fb, dfb, wayland, x11>
 
-This will sync in the layer and update local.conf and bblayer.conf in build directory.
+This will copy the machine configuration files, then run the Yocto Project community setup 
+and update local.conf and bblayer.conf in build directory with the meta-fsl-bsp-release layer.
 
 After this step, you will have everything to build an image.
-
 
 Build Configurations
 ---------------------

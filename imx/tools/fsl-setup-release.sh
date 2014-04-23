@@ -59,7 +59,7 @@ do
            ;;
         e)
             BACKEND="$OPTARG"
-            unset DIST_FEATURES_add
+            unset DIST_FEATURES_add DIST_FEATURES_remove
             if [ "$BACKEND" = "fb" ]; then
                 DIST_FEATURES_remove="x11 wayland directfb "
                  echo -e "\n Using FB backend with FB DIST_FEATURES to override poky X11 DIST FEATURES"
@@ -92,6 +92,9 @@ fi
 if [ -z "$BUILD_DIR" ]; then
     BUILD_DIR='build'
 fi
+
+# New machine definitions may need to be added to the expected location
+cp sources/meta-fsl-bsp-release/imx/meta-fsl-arm/conf/machine/* sources/meta-fsl-arm/conf/machine
 
 #Sets up the basic yocto environment
 source $PROGNAME $BUILD_DIR
