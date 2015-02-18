@@ -5,7 +5,7 @@ LICENSE = "Proprietary"
 
 inherit fsl-eula-unpack
 
-SRC_URI = "${FSL_MIRROR}/hdcp-app-${PV}.bin;fsl-eula=true"
+SRC_URI = "${FSL_MIRROR}/${PN}-${PV}.bin;fsl-eula=true"
 S = "${WORKDIR}/${PN}-${PV}"
 
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
